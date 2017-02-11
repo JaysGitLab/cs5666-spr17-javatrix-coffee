@@ -1,8 +1,7 @@
-
+package coffee;
 public class Matrix{
     private double[][] j4k;
-    public Matrix(double[][] A)
-    {
+    public Matrix(double[][] A){
         j4k = A;
     }
 
@@ -11,7 +10,8 @@ public class Matrix{
     }
 
     public Matrix(double[] vals, int m){
-        if (vals.length % m != 0){return;}
+        if (vals.length % m != 0){
+            throw new IllegalArgumentException("length of array must be divisbile by second variable");}
 
         int n = vals.length / m;
         int k =0;
@@ -29,7 +29,6 @@ public class Matrix{
             for(int j = 0; j < n; i ++)
                 A[m][n] = 0;
         }
-
     }
 
     public Matrix(int m, int n, double s){

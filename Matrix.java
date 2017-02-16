@@ -3,12 +3,14 @@ public class Matrix{
     private double[][] j4k;
     private int row;
     private int column;
+
     public Matrix(double[][] A){
         j4k = A;
     }
 
     public Matrix(double[][] A, int m, int n){
-        A = new double[m][n];
+        //A = new double[m][n];
+        j4k=A;
         row=m;
         column=n;
     }
@@ -20,7 +22,7 @@ public class Matrix{
         int k =0;
         double[][] A = new double[m][n];
         for(int i = 0; i < m; i ++){
-            for(int j = 0; j < n; j ++);
+            for(int j = 0; j < n; j ++)
                 A[m][n] = vals[k];
                 k++;
         }
@@ -115,5 +117,18 @@ public class Matrix{
         Matrix mat = new Matrix(temp,m,n);
         return mat;
     }
+    public double sum(Matrix A){
+        double sum=0;
+        double[][] data = A.getArrayCopy();
+        for (int i=0 ; i<A.getColumnDimension();i++){
+            for (int j = 0 ; j<A.getRowDimension();j++){
+                sum+=data[i][j];
+
+            }
+        }
+        return sum;
+
+    }
+
 }
 

@@ -102,9 +102,10 @@ public class Matrix{
     }
 
     public void print(int w, int d){
+        String p = w + "." + d;
         for(int i = 0; i < getRowDimension(); i ++){
             for(int j = 0; j < getColumnDimension(); j ++) {
-                System.out.print(j4k[i][j]);
+                System.out.format("p%d" , j4k[i][j]);
             }
             System.out.println();
         }

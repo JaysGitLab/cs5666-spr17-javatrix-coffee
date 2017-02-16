@@ -6,6 +6,13 @@ public class Matrix{
 
     public Matrix(double[][] A){
         j4k = A;
+        row= j4k.length;
+        column = j4k[0].length;
+        for(int i = 0; i < j4k[0].length;i++){
+            if (row != j4k[i].length){
+                throw new IllegalArgumentException("All rows must have the same length");}
+        }
+
     }
 
     public Matrix(double[][] A, int m, int n){
@@ -13,6 +20,7 @@ public class Matrix{
         j4k=A;
         row=m;
         column=n;
+
     }
 
     public Matrix(double[] vals, int m){

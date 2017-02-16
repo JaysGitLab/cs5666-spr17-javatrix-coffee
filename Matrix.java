@@ -126,17 +126,14 @@ public class Matrix{
         Matrix mat = new Matrix(temp,m,n);
         return mat;
     }
-    public double sum(Matrix A){
+    public double sum(){
         double sum=0;
-        double[][] data = A.getArrayCopy();
-        for (int i=0 ; i<A.getColumnDimension();i++){
-            for (int j = 0 ; j<A.getRowDimension();j++){
-                sum+=data[i][j];
-
+        for (int i=0 ; i<column; i++){
+            for (int j = 0 ; j< row;j++){
+                sum+=j4k[i][j];
             }
         }
         return sum;
-
     }
 
 }

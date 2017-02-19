@@ -1,21 +1,22 @@
-package coffee;
-import static org.junit.Assert.*;
-import org.junit.Test;
+/**
+* @Date:   2017-02-16T09:46:52-05:00
+* @Last modified time: 2017-02-19T13:33:52-05:00
+*/
 
 public class Test {
 
     public static void main(String[] args) {
-        ConstructorTest1();
-      //  ConstructorTest2();
-      //  ConstructorTest3();
+        constructorTest1();
+        getRowDimTest();
+        getColDimTest();
     }
-    
-    public static void ConstructorTest1(){
-        double[][] vals = {{1.,2.,3},{4.,5.,6.},{7.,8.,10.}};
+
+    public static void constructorTest1(){
+        double[][] vals = {{1.0,2.0,3.0},{4.0,5.0,6.0},{7.0,8.0,9.0}};
         Matrix A = new Matrix(vals);
-        assertEquals(45, A.sum(A));
     }
-/*
+
+    /**
     public static void ConstructorTest2(){
         double[][] vals = {{1.,2.,3},{4.,5.,6.},{7.,8.,10.}};
         Matrix A = new Matrix(vals);
@@ -35,7 +36,17 @@ public class Test {
         System.out.println("=");
         b.print(9,4);
     }
+    */
 
-*/
-}
+    public static void getRowDimTest(){
+      double[][] values = {{1.0,2.0}, {3.0,4.0}, {5.0, 6.0}};
+      Matrix A = new Matrix(values);
+      assert A.getRowDimension() == 3 : "row dimensions incorrect";
+    }
 
+    public static void getColDimTest(){
+      double[][] values = {{1.0,2.0}, {3.0,4.0}, {5.0, 6.0}};
+      Matrix A = new Matrix(values);
+      assert A.getColumnDimension() == 2 : "col dimensions incorrect";
+
+    }

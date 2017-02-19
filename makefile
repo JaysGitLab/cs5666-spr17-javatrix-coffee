@@ -10,13 +10,12 @@ default:
 	@echo "usage: make target"
 	@echo "available targets: compile, test, clean"
 
-compile: Matrix.java Tests/Testrix.java
+compile: Matrix.java Test.java
 #	javac -cp .:$(JUNIT_JAR)Tests/Testrix.java
-	javac Matrix.java Tests/Testrix.java
+	javac Matrix.java Test.java
 
 clean:
 	rm -f *.class 
-	rm -f Tests/*.class
 
 test: Matrix.class Tests/Testrix.class
-	java -cp .: $(JUNIT_JAR):$(HAMCREST_JAR) org.junit.runner.JUnitCore Tests/Testrix0
+	java -cp .: $(JUNIT_JAR):$(HAMCREST_JAR) org.junit.runner.JUnitCore Test 

@@ -5,15 +5,12 @@
 
 public class Matrix {
     private double[][] j4k;
-    private int numRows;
-    private int numCols;
 
     public Matrix(double[][] A) {
         j4k = A;
-        numRows = j4k.length;
-        numCols = j4k[0].length;
-        for (int i = 0; i < j4k.length;i++) {
-            if (numCols != j4k[i].length) {
+        int numCols = getColumnDimension();
+        for (int i = 0; i < getColumnDimension();i++) {
+            if (numCols != getColumnDimension()) {
                 throw new IllegalArgumentException("All rows must have the same length");}
         }
 
@@ -22,9 +19,6 @@ public class Matrix {
     public Matrix (double[][] A, int m, int n) {
         A = new double[m][n];
         j4k=A;
-        numRows = m;
-        numCols = n;
-
     }
 
     public Matrix (double[] vals, int m) {
@@ -38,8 +32,6 @@ public class Matrix {
                 A[m][n] = vals[k];
                 k++;
         }
-        numRows = m;
-        numCols = n;
     }
 
     public Matrix(int m, int n) {
@@ -48,8 +40,6 @@ public class Matrix {
             for(int j = 0; j < n; j ++)
                 A[m][n] = 0;
         }
-        numRows = m;
-        numCols = n;
     }
 
     public Matrix (int m, int n, double s) {
@@ -58,18 +48,16 @@ public class Matrix {
             for(int j = 0; j < n; j ++)
                 A[m][n] = s;
         }
-        numRows = m;
-        numCols = n;
     }
 
     public double[][] getArrayCopy() {
         return j4k;
     }
     public int getRowDimension() {
-        return numRows ;
+        return j4k.length ;
     }
     public int getColumnDimension() {
-        return numCols ;
+        return j4k[0].length;
     }
     public double[] getColumnPackedCopy() {
         int n = getColumnDimension();
@@ -109,7 +97,7 @@ public class Matrix {
         String p = w + "." + d;
         for(int i = 0; i < getRowDimension(); i ++){
             for(int j = 0; j < getColumnDimension(); j ++) {
-                System.out.format("p%d" , j4k[i][j]);
+                System.out.format("%pd" , j4k[i][j]);
             }
             System.out.println();
         }
@@ -132,8 +120,8 @@ public class Matrix {
     }
     public double sum() {
         double sum=0;
-        for (int i=0 ; i < numCols; i++){
-            for (int j = 0 ; j < numRows;j++){
+        for (int i=0 ; i < getColumnDimension(); i++){
+            for (int j = 0 ; j < getRowDimension();j++){
                 sum+=j4k[i][j];
             }
         }

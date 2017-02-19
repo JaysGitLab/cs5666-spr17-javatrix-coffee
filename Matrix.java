@@ -1,3 +1,10 @@
+/**
+* @Date:   2017-02-16T09:46:52-05:00
+* @Last modified time: 2017-02-19T11:27:54-05:00
+*/
+
+
+
 package coffee;
 public class Matrix{
     private double[][] j4k;
@@ -8,14 +15,14 @@ public class Matrix{
         j4k = A;
         row= j4k.length;
         column = j4k[0].length;
-        for(int i = 0; i < j4k[0].length;i++){
-            if (row != j4k[i].length){
+        for (int i = 0; i < j4k[0].length;i++) {
+            if (row != j4k[i].length) {
                 throw new IllegalArgumentException("All rows must have the same length");}
         }
 
     }
 
-    public Matrix(double[][] A, int m, int n){
+    public Matrix (double[][] A, int m, int n) {
         //A = new double[m][n];
         j4k=A;
         row=m;
@@ -23,14 +30,14 @@ public class Matrix{
 
     }
 
-    public Matrix(double[] vals, int m){
+    public Matrix (double[] vals, int m) {
         if (vals.length % m != 0){
             throw new IllegalArgumentException("length of array must be divisbile by second variable");}
         int n = vals.length / m;
         int k =0;
         double[][] A = new double[m][n];
-        for(int i = 0; i < m; i ++){
-            for(int j = 0; j < n; j ++)
+        for (int i = 0; i < m; i ++){
+            for (int j = 0; j < n; j ++)
                 A[m][n] = vals[k];
                 k++;
         }
@@ -48,7 +55,7 @@ public class Matrix{
         column=n;
     }
 
-    public Matrix(int m, int n, double s){
+    public Matrix (int m, int n, double s){
         double[][] A = new double[m][n];
         for(int i = 0; i < m; i ++){
             for(int j = 0; j < n; j ++)
@@ -137,4 +144,3 @@ public class Matrix{
     }
 
 }
-

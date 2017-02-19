@@ -7,7 +7,7 @@
 
 import Javatrix.*;
 
-public class Testtrix {
+public class Test {
 
     public static void main(String[] args) {
         ConstructorTest1();

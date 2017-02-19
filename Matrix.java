@@ -1,19 +1,19 @@
 /**
 * @Date:   2017-02-16T09:46:52-05:00
-* @Last modified time: 2017-02-19T12:38:41-05:00
+* @Last modified time: 2017-02-19T13:29:31-05:00
 */
 
 public class Matrix {
     private double[][] j4k;
-    private int row;
-    private int column;
+    private int numRows;
+    private int numCols;
 
     public Matrix(double[][] A) {
         j4k = A;
-        row= j4k.length;
-        column = j4k[0].length;
-        for (int i = 0; i < j4k[0].length;i++) {
-            if (row != j4k[i].length) {
+        numRows = j4k.length;
+        numCols = j4k[0].length;
+        for (int i = 0; i < j4k.length;i++) {
+            if (numCols != j4k[i].length) {
                 throw new IllegalArgumentException("All rows must have the same length");}
         }
 
@@ -22,8 +22,8 @@ public class Matrix {
     public Matrix (double[][] A, int m, int n) {
         A = new double[m][n];
         j4k=A;
-        row=m;
-        column=n;
+        numRows = m;
+        numCols = n;
 
     }
 
@@ -38,8 +38,8 @@ public class Matrix {
                 A[m][n] = vals[k];
                 k++;
         }
-        row=m;
-        column=n;
+        numRows = m;
+        numCols = n;
     }
 
     public Matrix(int m, int n) {
@@ -48,8 +48,8 @@ public class Matrix {
             for(int j = 0; j < n; j ++)
                 A[m][n] = 0;
         }
-        row=m;
-        column=n;
+        numRows = m;
+        numCols = n;
     }
 
     public Matrix (int m, int n, double s) {
@@ -58,18 +58,18 @@ public class Matrix {
             for(int j = 0; j < n; j ++)
                 A[m][n] = s;
         }
-        row=m;
-        column=n;
+        numRows = m;
+        numCols = n;
     }
 
     public double[][] getArrayCopy() {
         return j4k;
     }
     public int getRowDimension() {
-        return row;
+        return numRows ;
     }
     public int getColumnDimension() {
-        return column;
+        return numCols ;
     }
     public double[] getColumnPackedCopy() {
         int n = getColumnDimension();
@@ -132,8 +132,8 @@ public class Matrix {
     }
     public double sum() {
         double sum=0;
-        for (int i=0 ; i<column; i++){
-            for (int j = 0 ; j< row;j++){
+        for (int i=0 ; i < numCols; i++){
+            for (int j = 0 ; j < numRows;j++){
                 sum+=j4k[i][j];
             }
         }

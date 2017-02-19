@@ -50,4 +50,3 @@ public class Test {
       assert A.getColumnDimension() == 2 : "col dimensions incorrect";
 
     }
-}

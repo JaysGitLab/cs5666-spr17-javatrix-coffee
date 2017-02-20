@@ -8,13 +8,15 @@ public class Matrix {
     private double[][] j4k;
 
     public Matrix(double[][] A) {
-        j4k = A;
         int numCols = getColumnDimension();
-        for (int i = 0; i < getColumnDimension(); i++) {
-            if (numCols != getColumnDimension()) {
+        for (int i = 0; i < numCols; i++) {
+            if (numCols != A[i].length) {
                 throw new IllegalArgumentException("All rows must have the same length");
             }
         }
+        j4k = A;
+
+
     }
 
     public Matrix(double[][] A, int m, int n) {
@@ -29,31 +31,35 @@ public class Matrix {
         int n = vals.length / m;
         int k = 0;
         double[][] A = new double[m][n];
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++)
-                A[m][n] = vals[k];
-            k++;
+        for (int i = 0; i < m-1; i++) {
+            for (int j = 0; j < n-1; j++) {
+                A[i][j] = vals[k];
+                k++;
+            }
         }
+        j4k=A;
     }
 
     public Matrix(int m, int n) {
-        double[][] A = new double[m][n];
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++)
-                A[m][n] = 0;
+        double[][]A = new double[m][n];
+        for (int i = 0; i < m-1; i++) {
+            for (int j = 0; j < n-1; j++)
+                A[i][j] = 0;
         }
+        j4k=A;
     }
 
     public Matrix(int m, int n, double s) {
         double[][] A = new double[m][n];
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++)
+        for (int i = 0; i < m-1; i++) {
+            for (int j = 0; j < n-1; j++)
                 A[m][n] = s;
         }
+        j4k=A;
     }
 
     public double[][] getArrayCopy() {
-        double[][] A= new double[getRowDimension()][getColumnDimension()];
+        double[][]A = new double[getRowDimension()][getColumnDimension()];
         for(int i = 0;i<getRowDimension();i++){
             for(int j=0;i<getColumnDimension();j++) {
                 A[i][j]=j4k[i][j];

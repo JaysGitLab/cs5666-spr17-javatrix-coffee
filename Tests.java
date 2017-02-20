@@ -99,18 +99,18 @@ public class Tests {
             System.out.println("GetArray: Passed");
 
         }
-/*
-    public static void getRowDimTest(){
-        double[][] values = {{1.0,2.0}, {3.0,4.0}, {5.0, 6.0}};
-        Matrix A = new Matrix(values);
-        assert A.getRowDimension() == 3 : "row dimensions incorrect";
-    }
+	
+    @Test
+    	public static void getRowDimTest(){
+            double[][] values = {{1.0,2.0}, {3.0,4.0}, {5.0, 6.0}};
+            Matrix A = new Matrix(values);
+            assert A.getRowDimension() == 3 : "row dimensions incorrect";
+        }
 
-    public static void getColDimTest(){
-        double[][] values = {{1.0,2.0}, {3.0,4.0}, {5.0, 6.0}};
-        Matrix A = new Matrix(values);
-        assert A.getColumnDimension() == 2 : "col dimensions incorrect";
-
-    }
-    */
+    @Test
+    	public static void getColDimTest(){
+            double[][] values = {{1.0,2.0}, {3.0,4.0}, {5.0, 6.0}};
+            Matrix A = new Matrix(values);
+            assert A.getColumnDimension() == 2 : "col dimensions incorrect";
+        }
 }

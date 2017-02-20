@@ -15,7 +15,11 @@ compile: Matrix.java Test.java
 	javac Matrix.java Test.java
 
 clean:
-	rm -f *.class 
+	rm -f *.class
+	rm -f *.log 
 
 test: Matrix.class Tests/Testrix.class
 	java -cp .: $(JUNIT_JAR):$(HAMCREST_JAR) org.junit.runner.JUnitCore Test 
+
+checkstyle: Matrix.java Test.java
+	checkstyle *.java > checkstyle.log	

@@ -126,8 +126,8 @@ public class Matrix {
 
     public Matrix identity(int m, int n) {
         double temp[][] = new double[m][n];
-        for (int i = 0; i < getRowDimension(); i++) {
-            for (int j = 0; j < getColumnDimension(); j++) {
+        for (int i = 0; i < getRowDimension()-1; i++) {
+            for (int j = 0; j < getColumnDimension()-1; j++) {
                 if (i == j) {
                     temp[i][j] = 1;
                 } else {
@@ -141,8 +141,8 @@ public class Matrix {
 
     public double sum() {
         double sum = 0;
-        for (int i = 0; i < getColumnDimension(); i++) {
-            for (int j = 0; j < getRowDimension(); j++) {
+        for (int i = 0; i < getColumnDimension()-1; i++) {
+            for (int j = 0; j < getRowDimension()-1; j++) {
                 sum += j4k[i][j];
             }
         }
@@ -158,7 +158,7 @@ public class Matrix {
         int n = A[0].length;
         Matrix B = new Matrix(m, n);
         double[][] C = B.getArray();
-        for (int i = 0; i < getColumnDimension(); i++) {
+        for (int i = 0; i < getColumnDimension()-1; i++) {
             if (A[i].length != A[0].length) {
                 throw new IllegalArgumentException("All rows must have the same length");
             }
@@ -174,8 +174,8 @@ public class Matrix {
     public Matrix copy () {
         Matrix A = new Matrix(getRowDimension(),getColumnDimension());
         double[][] B = A.getArray();
-        for(int i = 0; i<getRowDimension();i++){
-            for(int j = 0;j<getColumnDimension();j++){
+        for(int i = 0; i<getRowDimension()-1;i++){
+            for(int j = 0;j<getColumnDimension()-1;j++){
                 B[i][j]=j4k[i][j];
             }
         }
@@ -185,8 +185,8 @@ public class Matrix {
     public Matrix transpose(){
         Matrix A = new Matrix(getRowDimension(),getColumnDimension());
         double B[][]= A.getArray();
-        for(int i=0;i<getRowDimension();i++){
-            for (int j=0;j<getColumnDimension();j++){
+        for(int i=0;i<getRowDimension()-1;i++){
+            for (int j=0;j<getColumnDimension()-1;j++){
                 B[i][j]=j4k[i][j];
             }
         }

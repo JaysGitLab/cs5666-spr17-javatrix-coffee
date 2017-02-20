@@ -116,9 +116,9 @@ public class Matrix {
 
     public void print(int w, int d) {
         String p = w + "." + d;
-        for (int i = 0; i < getRowDimension(); i++) {
-            for (int j = 0; j < getColumnDimension(); j++) {
-                System.out.format("%pd", j4k[i][j]);
+        for (int i = 0; i < getRowDimension() - 1; i++) {
+            for (int j = 0; j < getColumnDimension() - 1; j++) {
+                System.out.format("%d", j4k[i][j]);
             }
             System.out.println();
         }

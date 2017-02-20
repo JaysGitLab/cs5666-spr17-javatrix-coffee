@@ -41,9 +41,10 @@ public class Tests {
     @Test
         /* Matrix(double[], rows) */
         public void Constructor5(){
-            double[] vals = {1.,2.,3.,4.,5.,6.,7.,8.,10.,11.,12.,13.};
+            double[] vals = {1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.};
             Matrix A= new Matrix (vals, 4);
-            assertEquals(91, A.sum(), 0);
+            assertEquals(78, A.sum(), 0);
+            A.print(2 ,2);
             System.out.println("Constructor Test5: passed");
         }
     /*

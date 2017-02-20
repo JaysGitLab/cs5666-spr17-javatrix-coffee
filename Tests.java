@@ -1,124 +1,142 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-/*
-   @author desantisbm, coleej, wardj
-   @version alpha 
-   */
-public class Tests{
+/**
+@author desantisbm, coleej, wardj
+@version alpha 
+ */
+public class Tests {
+
+    
+    /**
+      *
+      * Matrix(row, column) 
+      * */ 
+    @Test
+    public void constructorTest1() {
+        Matrix a = new Matrix(3, 3);
+        assertEquals(0, a.sum(), 0);
+        System.out.println("Constructor Test1: passed");
+    }
 
     @Test
-        /* Matrix(row, column) */ 
-        public void constructorTest1(){
-            Matrix a = new Matrix(3, 3);
-            assertEquals(0, a.sum(), 0);
-            System.out.println("Constructor Test1: passed");
-        }
+    /**
+     * * Matrix(row, column, value) 
+     * */
+    public  void constructorTest2() {
+        Matrix a = new Matrix(3, 3, 3);
+        assertEquals(27, a.sum(), 0);
+        System.out.println("Constructor Test2: passed"); 
+    }
 
     @Test
-        /* Matrix(row, column, value) */
-        public  void constructorTest2(){
-            Matrix a = new Matrix(3, 3, 3);
-            assertEquals(27, a.sum(), 0);
-            System.out.println("Constructor Test2: passed"); 
-        }
+    /**
+     * Matrix(double[][])
+     * */
+    public void constructorTest3() {
+        double[][] vals = {{1., 2., 3}, {4., 5., 6.}, {7., 8., 10.}};
+        Matrix a = new Matrix(vals);
+        assertEquals(46, a.sum(), 0);
+        System.out.println("Constructor Test3: passed");
+    }
 
     @Test
-        /* Matrix(double[][])*/
-        public void constructorTest3(){
-            double[][] vals = {{1., 2., 3},{4., 5., 6.},{7., 8., 10.}};
-            Matrix a = new Matrix(vals);
-            assertEquals(46, a.sum(), 0);
-            System.out.println("Constructor Test3: passed");
-        }
+    /**
+     * Matrix(double[][], int m, int n) TODO: 
+     * */
+    public void constructorTest4() {
+        double[][] vals = {{1., 2., 3}, {4., 5., 6.}, {7., 8., 10.}};
+        Matrix a = new Matrix(vals, 3, 4);
+        assertEquals(46, a.sum(), 0);
+        System.out.println("Constructor Test4: passed");
+    }
 
     @Test
-        /* Matrix(double[][], int m, int n) TODO: */
-        public void constructorTest4(){
-            double[][] vals = {{1., 2., 3},{4., 5., 6.},{7., 8., 10.}};
-            Matrix a = new Matrix(vals, 3, 4);
-            assertEquals(46, a.sum(), 0);
-            System.out.println("Constructor Test4: passed");
-        }
+    /**
+     * * Matrix(double[], rows) 
+     * */
+    public void constructorTest5() {
+        double[] vals = {1., 2., 3., 4., 5., 6., 7., 8., 9., 10., 11., 12.};
+        Matrix a = new Matrix(vals, 4);
+        assertEquals(78, a.sum(), 0);
+        System.out.println("Constructor Test5: passed");
+    }
 
     @Test
-        /* Matrix(double[], rows) */
-        public void constructorTest5(){
-            double[] vals = {1., 2., 3., 4., 5., 6., 7., 8., 9., 10., 11., 12.};
-            Matrix a= new Matrix (vals, 4);
-            assertEquals(78, a.sum(), 0);
-            System.out.println("Constructor Test5: passed");
-        }
-    @Test
-        /*TestConstructWithCopy */
-        public void testConstructWithCopy(){
-            double[][] vals = {{1., 2., 3},{4., 5., 6.},{7., 8., 10.}};
+    /**TestConstructWithCopy 
+     * */
+    public void testConstructWithCopy() {
+        double[][] vals = {{1., 2., 3}, {4., 5., 6.}, {7., 8., 10.}};
 
-            Matrix a = new Matrix(vals);
-            Matrix b = a.constructWithCopy(vals);
-            assertEquals(a.sum(), b.sum(), 0);
-            System.out.println("ConstructWithCopy: Passed");
-        }
-
+        Matrix a = new Matrix(vals);
+        Matrix b = a.constructWithCopy(vals);
+        assertEquals(a.sum(), b.sum(), 0);
+        System.out.println("ConstructWithCopy: Passed");
+    }
 
     @Test
-        /*TestCopy*/
-        public void testCopy(){
-            Matrix a = new Matrix(3 ,3 ,3);
-            Matrix b = a.copy();
-            assertEquals(a.sum(), b.sum(), 0);
-            System.out.println("CopyTest: Passed"); 
-        }
-    @Test
-        /*TestClone*/
-        public void testClone(){
-            Matrix a = new Matrix(3 ,3 ,3);
-            Matrix b = a.clone();
-            assertEquals(a, b);
-            System.out.println("CopyClone: Passed");
-        }
+    /**TestCopy
+     * */
+    public void testCopy() {
+        Matrix a = new Matrix(3, 3, 3);
+        Matrix b = a.copy();
+        assertEquals(a.sum(), b.sum(), 0);
+        System.out.println("CopyTest: Passed"); 
+    }
 
     @Test
-        /*TestGetArray*/
-        public void TestGetArray(){
-            double[][] vals = {{3., 3., 3},{3., 3., 3.},{3., 3., 3.}};
-            Matrix a = new Matrix(3, 3, 3);
-            double [][] ans = a.getArray();
-            for(int i = 0; i < vals.length; i++){
-                for(int j = 0; j < vals.length; j++){
-                    assertEquals(vals[i][j], ans[i][j], 0);
-                }
+    /**TestClone
+     * */
+    public void testClone() {
+        Matrix a = new Matrix(3, 3, 3);
+        Matrix b = a.clone();
+        assertEquals(a, b);
+        System.out.println("CopyClone: Passed");
+    }
+
+    @Test
+    /**TestGetArray
+     * */
+    public void testGetArray() {
+        double[][] vals = {{3., 3., 3}, {3., 3., 3.}, {3., 3., 3.}};
+        Matrix a = new Matrix(3, 3, 3);
+        double[][] ans = a.getArray();
+        for (int i = 0; i < vals.length; i++) {
+            for (int j = 0; j < vals.length; j++) {
+                assertEquals(vals[i][j], ans[i][j], 0);
             }
-            System.out.println("GetArray: Passed"); 
-
         }
+        System.out.println("GetArray: Passed"); 
+
+    }
 
     @Test
-        /*TestGetArrayCopy*/
-        public void testGetArrayCopy(){
-            double[][] vals = {{3., 3., 3},{3., 3., 3.},{3., 3., 3.}};
-            Matrix a = new Matrix(vals);
-            double [][] ans = a.getArray();
-            for(int i = 0; i < vals.length; i++){
-                for(int j = 0; j < vals.length; j++){
-                    assertEquals(vals[i][j], ans[i][j], 0);
-                }
+    /**TestGetArrayCopy
+     * */
+    public void testGetArrayCopy() {
+        double[][] vals = {{3., 3., 3}, {3., 3., 3.}, {3., 3., 3.}};
+        Matrix a = new Matrix(vals);
+        double[][] ans = a.getArray();
+        for (int i = 0; i < vals.length; i++) {
+            for (int j = 0; j < vals.length; j++) {
+                assertEquals(vals[i][j], ans[i][j], 0);
             }
-            System.out.println("GetArray: Passed");
-
         }
-    /*
-       public static void getRowDimTest(){
-       double[][] values = {{1.0,2.0}, {3.0,4.0}, {5.0, 6.0}};
-       Matrix A = new Matrix(values);
-       assert A.getRowDimension() == 3 : "row dimensions incorrect";
-       }
+        System.out.println("GetArray: Passed");
 
-       public static void getColDimTest(){
-       double[][] values = {{1.0,2.0}, {3.0,4.0}, {5.0, 6.0}};
-       Matrix A = new Matrix(values);
-       assert A.getColumnDimension() == 2 : "col dimensions incorrect";
+    }
+    /**
+    public static void getRowDimTest(){
+    double[][] values = {{1.0,2.0}, {3.0,4.0}, {5.0, 6.0}};
+    Matrix A = new Matrix(values);
+    assert A.getRowDimension() == 3 : "row dimensions incorrect";
+    }
 
-       }
-       */
+    public static void getColDimTest(){
+    double[][] values = {{1.0,2.0}, {3.0,4.0}, {5.0, 6.0}};
+    Matrix A = new Matrix(values);
+    assert A.getColumnDimension() == 2 : "col dimensions incorrect";
+
+    }
+     */
 }

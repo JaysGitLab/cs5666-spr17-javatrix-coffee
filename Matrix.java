@@ -29,8 +29,8 @@ public class Matrix {
         int n = vals.length / m;
         int k = 0;
         double[][] A = new double[m][n];
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++)
+        for (int i = 0; i < m-1; i++) {
+            for (int j = 0; j < n-1; j++)
                 A[m][n] = vals[k];
             k++;
         }
@@ -38,16 +38,16 @@ public class Matrix {
 
     public Matrix(int m, int n) {
         double[][] A = new double[m][n];
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++)
+        for (int i = 0; i < m-1; i++) {
+            for (int j = 0; j < n-1; j++)
                 A[m][n] = 0;
         }
     }
 
     public Matrix(int m, int n, double s) {
         double[][] A = new double[m][n];
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++)
+        for (int i = 0; i < m-1; i++) {
+            for (int j = 0; j < n-1; j++)
                 A[m][n] = s;
         }
     }

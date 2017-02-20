@@ -1,8 +1,8 @@
 
 /**
-* @Date:   2017-02-16T09:46:52-05:00
-* @Last modified time: 2017-02-19T13:29:31-05:00
-*/
+ * @Date:   2017-02-16T09:46:52-05:00
+ * @Last modified time: 2017-02-19T13:29:31-05:00
+ */
 
 public class Matrix {
     private double[][] j4k;
@@ -30,13 +30,14 @@ public class Matrix {
         int n = vals.length / m;
         int k = 0;
         double[][] A = new double[m][n];
-        for (int i = 0; i < m-1; i++) {
+        for(int i = 0; i < m-1; i ++){  
             for (int j = 0; j < n-1; j++) {
                 A[i][j] = vals[k];
                 k++;
             }
         }
-        j4k=A;
+
+        j4k = A;
     }
 
     public Matrix(int m, int n) {
@@ -115,9 +116,10 @@ public class Matrix {
 
     public void print(int w, int d) {
         String p = w + "." + d;
-        for (int i = 0; i < getRowDimension()-1; i++) {
-            for (int j = 0; j < getColumnDimension()-1; j++) {
-                System.out.format("%d ", j4k[i][j]);
+
+        for (int i = 0; i < getRowDimension() - 1; i++) {
+            for (int j = 0; j < getColumnDimension() - 1; j++) {
+                System.out.format("%d", j4k[i][j]);
             }
             System.out.println();
         }

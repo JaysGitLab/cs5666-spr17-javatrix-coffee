@@ -46,25 +46,26 @@ public class Tests {
             assertEquals(78, A.sum(), 0);
             System.out.println("Constructor Test5: passed");
         }
-    /*
+    
     @Test
         public void TestConstructWithCopy(){
             double[][] vals = {{1.,2.,3},{4.,5.,6.},{7.,8.,10.}};
 
             Matrix A = new Matrix(vals);
             Matrix B = A.constructWithCopy(vals);
-            assertEquals(A.sum(), B.sum(),0);
+            assertEquals(A.sum(), B.sum(), 0);
             System.out.println("ConstructWithCopy: Passed");
         }
+    
     
     @Test
         public void TestCopy(){
             Matrix A = new Matrix(3 ,3 ,3);
             Matrix B = A.copy();
-            A = new Matrix(3, 3, 4);
-            assertEquals(A.sum(), B.sum(), 0);
+            assertEquals(A, B);
             System.out.println("CopyTest: Passed"); 
         }
+        /*
     @Test
         public void TestClone(){//TODO
             Matrix A = new Matrix(3 ,3 ,3);

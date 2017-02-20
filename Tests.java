@@ -46,7 +46,6 @@ public class Tests {
             assertEquals(78, A.sum(), 0);
             System.out.println("Constructor Test5: passed");
         }
-    
     @Test
         public void TestConstructWithCopy(){
             double[][] vals = {{1.,2.,3},{4.,5.,6.},{7.,8.,10.}};
@@ -62,18 +61,17 @@ public class Tests {
         public void TestCopy(){
             Matrix A = new Matrix(3 ,3 ,3);
             Matrix B = A.copy();
-            assertEquals(A, B);
+            assertEquals(A.sum(), B.sum(), 0);
             System.out.println("CopyTest: Passed"); 
         }
-        /*
     @Test
         public void TestClone(){//TODO
             Matrix A = new Matrix(3 ,3 ,3);
             Matrix B = A.clone();
-            A = new Matrix(3, 3, 4);
-            assertEquals(A.sum(), B.sum(), 0);
+            assertEquals(A, B);
             System.out.println("CopyClone: Passed");
         }
+        
     @Test
         public void TestGetArray(){
             double[][] vals = {{3.,3.,3},{3.,3.,3.},{3.,3.,3.}};
@@ -87,10 +85,11 @@ public class Tests {
             System.out.println("GetArray: Passed"); 
 
         }
+        
     @Test
-        public void TestGetArray(){//TODO: get array Copy()
+        public void TestGetArrayCopy(){//TODO: get array Copy()
             double[][] vals = {{3.,3.,3},{3.,3.,3.},{3.,3.,3.}};
-            Matrix A = new Matrix(3,3,3);
+            Matrix A = new Matrix(vals);
             double [][] ans = A.getArray();
             for(int i = 0; i < vals.length; i++){
                 for(int j = 0; j < vals.length; j++){
@@ -100,19 +99,7 @@ public class Tests {
             System.out.println("GetArray: Passed");
 
         }
-
-       public static void ConstructorTest3(){
-       double[][] vals = {{1.,2.,3},{4.,5.,6.},{7.,8.,10.}};
-       Matrix A = new Matrix(vals);
-       Matrix x = Matrix.random(3,1);
-       Matrix b = A.times(x);
-       A.print(9,4);
-       System.out.println("x");
-       x.print(9,4);
-       System.out.println("=");
-       b.print(9,4);
-       }
-
+/*
     public static void getRowDimTest(){
         double[][] values = {{1.0,2.0}, {3.0,4.0}, {5.0, 6.0}};
         Matrix A = new Matrix(values);

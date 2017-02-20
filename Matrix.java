@@ -166,7 +166,6 @@ public class Matrix {
 
             for (int j =0 ; j<A[0].length;j++){
                 C[i][j] = A[i][j];
-
             }
         }
         return B;
@@ -180,6 +179,9 @@ public class Matrix {
                 B[i][j]=j4k[i][j];
             }
         }
+        return this;
+    }
+    public Matrix clone() {
         return this;
     }
 

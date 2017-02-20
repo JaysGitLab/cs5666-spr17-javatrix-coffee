@@ -8,19 +8,18 @@ public class Matrix {
     private double[][] j4k;
 
     public Matrix(double[][] A) {
-        int numCols = getColumnDimension();
+        int numCols = A.length;
         for (int i = 0; i < numCols; i++) {
             if (numCols != A[i].length) {
                 throw new IllegalArgumentException("All rows must have the same length");
             }
         }
         j4k = A;
-
-
     }
 
     public Matrix(double[][] A, int m, int n) {
-        A = new double[m][n];
+        //A = new double[m][n];
+        j4k=new double[][];
         j4k = A;
     }
 
@@ -53,8 +52,9 @@ public class Matrix {
     public Matrix(int m, int n, double s) {
         double[][] A = new double[m][n];
         for (int i = 0; i < m-1; i++) {
-            for (int j = 0; j < n-1; j++)
+            for (int j = 0; j < n - 1; j++) {
                 A[m][n] = s;
+            }
         }
         j4k=A;
     }
@@ -116,6 +116,7 @@ public class Matrix {
 
     public void print(int w, int d) {
         String p = w + "." + d;
+
         for (int i = 0; i < getRowDimension() - 1; i++) {
             for (int j = 0; j < getColumnDimension() - 1; j++) {
                 System.out.format("%d", j4k[i][j]);
@@ -192,5 +193,4 @@ public class Matrix {
         }
         return A;
     }
-
 }

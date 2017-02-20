@@ -16,7 +16,7 @@ default:
 	@echo "available targets: compile, test, clean, checkstyle"
 
 compile: Matrix.java Tests.java
-	javac -cp .:$(JUNIT_JAR) Tests.java
+	javac -cp .:$(JUNIT_JAR) Tests.java Matrix.java
 	#javac Matrix.java Tests.java
 
 clean:
@@ -24,7 +24,7 @@ clean:
 	rm -f *.log 
 
 test: Matrix.class Tests.class
-	java -cp .: $(JUNIT_JAR):$(HAMCREST_JAR) org.junit.runner.JUnitCore Tests
+	java -cp .:$(JUNIT_JAR):$(HAMCREST_JAR) org.junit.runner.JUnitCore Tests
 
 
 checkstyle: Matrix.java Test.java

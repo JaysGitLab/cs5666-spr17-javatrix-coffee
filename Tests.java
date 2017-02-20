@@ -14,7 +14,7 @@ public class Tests {
 
     @Test
         /* Matrix(row, column, value) */
-        public static void ConstructorTest2(){
+        public  void ConstructorTest2(){
             Matrix A = new Matrix(3, 3, 3);
             assertEquals(27, A.sum(), 0);
             System.out.println("Constructor Test2: passed"); 

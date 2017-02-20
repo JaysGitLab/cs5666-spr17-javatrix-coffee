@@ -25,7 +25,7 @@ public class Tests {
         public void ConstructorTest3(){
             double[][] vals = {{1.,2.,3},{4.,5.,6.},{7.,8.,10.}};
             Matrix A = new Matrix(vals);
-            assertEquals(45, A.sum(), 0);
+            assertEquals(46, A.sum(), 0);
             System.out.println("Constructor Test3: passed");
         }
 

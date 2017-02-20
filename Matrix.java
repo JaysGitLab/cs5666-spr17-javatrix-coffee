@@ -8,13 +8,15 @@ public class Matrix {
     private double[][] j4k;
 
     public Matrix(double[][] A) {
-        j4k = A;
         int numCols = getColumnDimension();
-        for (int i = 0; i < getColumnDimension(); i++) {
-            if (numCols != getColumnDimension()) {
+        for (int i = 0; i < numCols; i++) {
+            if (numCols != A[i].length) {
                 throw new IllegalArgumentException("All rows must have the same length");
             }
         }
+        j4k = A;
+
+
     }
 
     public Matrix(double[][] A, int m, int n) {
@@ -30,18 +32,34 @@ public class Matrix {
         int k = 0;
         double[][] A = new double[m][n];
         for (int i = 0; i < m-1; i++) {
+<<<<<<< HEAD
             for (int j = 0; j < n-1; j++)
                 A[m][n] = vals[k];
             k++;
+=======
+            for (int j = 0; j < n-1; j++) {
+                A[i][j] = vals[k];
+                k++;
+            }
+>>>>>>> 6e4b7ac12ea4b751df45e64e6f24e47f868f5c5b
         }
+        j4k=A;
     }
 
     public Matrix(int m, int n) {
+<<<<<<< HEAD
         double[][] A = new double[m][n];
         for (int i = 0; i < m-1; i++) {
             for (int j = 0; j < n-1; j++)
                 A[m][n] = 0;
+=======
+        double[][]A = new double[m][n];
+        for (int i = 0; i < m-1; i++) {
+            for (int j = 0; j < n-1; j++)
+                A[i][j] = 0;
+>>>>>>> 6e4b7ac12ea4b751df45e64e6f24e47f868f5c5b
         }
+        j4k=A;
     }
 
     public Matrix(int m, int n, double s) {
@@ -50,10 +68,11 @@ public class Matrix {
             for (int j = 0; j < n-1; j++)
                 A[m][n] = s;
         }
+        j4k=A;
     }
 
     public double[][] getArrayCopy() {
-        double[][] A= new double[getRowDimension()][getColumnDimension()];
+        double[][]A = new double[getRowDimension()][getColumnDimension()];
         for(int i = 0;i<getRowDimension();i++){
             for(int j=0;i<getColumnDimension();j++) {
                 A[i][j]=j4k[i][j];

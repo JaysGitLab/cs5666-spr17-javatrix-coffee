@@ -27,5 +27,5 @@ test: Matrix.class Tests.class
 	java -cp .:$(JUNIT_JAR):$(HAMCREST_JAR) org.junit.runner.JUnitCore Tests
 
 
-checkstyle: Matrix.java Test.java
-	checkstyle *.java > checkstyle.log	
+checkstyle: Matrix.java Tests.java
+	java -jar checkstyle-7.5.1-all.jar -c ./cs_appstate_checks.xml *.java > checkstyle.log	

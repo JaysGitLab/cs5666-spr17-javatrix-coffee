@@ -34,11 +34,11 @@ public class Tests {
         public void ConstructorTest4(){
             double[][] vals = {{1.,2.,3},{4.,5.,6.},{7.,8.,10.}};
             Matrix A = new Matrix(vals, 3, 4);
-            assertEquals(45, A.sum(), 0);
+            assertEquals(46, A.sum(), 0);
             System.out.println("Constructor Test4: passed");
         }
 
-    @Test
+    @Testvi
         /* Matrix(double[], rows) */
         public void Constructor5(){
             double[] vals = {1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.};
@@ -47,7 +47,7 @@ public class Tests {
             A.print(2 ,2);
             System.out.println("Constructor Test5: passed");
         }
-    /*
+    /
     @Test
         public void TestConstructWithCopy(){
             double[][] vals = {{1.,2.,3},{4.,5.,6.},{7.,8.,10.}};
@@ -62,7 +62,6 @@ public class Tests {
         public void TestCopy(){
             Matrix A = new Matrix(3 ,3 ,3);
             Matrix B = A.copy();
-            A = new Matrix(3, 3, 4);
             assertEquals(A.sum(), B.sum(), 0);
             System.out.println("CopyTest: Passed"); 
         }
@@ -70,10 +69,10 @@ public class Tests {
         public void TestClone(){//TODO
             Matrix A = new Matrix(3 ,3 ,3);
             Matrix B = A.clone();
-            A = new Matrix(3, 3, 4);
-            assertEquals(A.sum(), B.sum(), 0);
+            assertEquals(A, B, 0);
             System.out.println("CopyClone: Passed");
         }
+        /*
     @Test
         public void TestGetArray(){
             double[][] vals = {{3.,3.,3},{3.,3.,3.},{3.,3.,3.}};

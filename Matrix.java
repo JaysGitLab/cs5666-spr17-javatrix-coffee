@@ -30,8 +30,8 @@ public class Matrix {
         int n = vals.length / m;
         int k = 0;
         double[][] A = new double[m][n];
-        for(int i = 0; i < m-1; i ++){  
-            for (int j = 0; j < n-1; j++) {
+        for(int i = 0; i < m; i ++){  
+            for (int j = 0; j < n; j++) {
                 A[i][j] = vals[k];
                 k++;
             }
@@ -42,8 +42,8 @@ public class Matrix {
 
     public Matrix(int m, int n) {
         double[][]A = new double[m][n];
-        for (int i = 0; i < m-1; i++) {
-            for (int j = 0; j < n-1; j++)
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++)
                 A[i][j] = 0;
         }
         j4k=A;
@@ -51,8 +51,8 @@ public class Matrix {
 
     public Matrix(int m, int n, double s) {
         double[][] A = new double[m][n];
-        for (int i = 0; i < m-1; i++) {
-            for (int j = 0; j < n - 1; j++) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 A[i][j] = s;
             }
         }
@@ -142,8 +142,8 @@ public class Matrix {
 
     public double sum() {
         double sum = 0;
-        for (int i = 0; i <  getRowDimension()-1; i++) {
-            for (int j = 0; j <getColumnDimension()-1; j++) {
+        for (int i = 0; i <  getRowDimension(); i++) {
+            for (int j = 0; j <getColumnDimension(); j++) {
                 sum += j4k[i][j];
             }
         }

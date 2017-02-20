@@ -34,7 +34,7 @@ public class Tests {
         public void ConstructorTest4(){
             double[][] vals = {{1.,2.,3},{4.,5.,6.},{7.,8.,10.}};
             Matrix A = new Matrix(vals, 3, 4);
-            assertEquals(45, A.sum(), 0);
+            assertEquals(46, A.sum(), 0);
             System.out.println("Constructor Test4: passed");
         }
 
@@ -44,7 +44,6 @@ public class Tests {
             double[] vals = {1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.};
             Matrix A= new Matrix (vals, 4);
             assertEquals(78, A.sum(), 0);
-            A.print(2 ,2);
             System.out.println("Constructor Test5: passed");
         }
     /*

@@ -19,7 +19,7 @@ public class Matrix {
 
     public Matrix(double[][] A, int m, int n) {
         //A = new double[m][n];
-        j4k=new double[][];
+        j4k=new double[m][n];
         j4k = A;
     }
 

@@ -1,8 +1,8 @@
 
 /**
-* @Date:   2017-02-16T09:46:52-05:00
-* @Last modified time: 2017-02-19T13:29:31-05:00
-*/
+ * @Date:   2017-02-16T09:46:52-05:00
+ * @Last modified time: 2017-02-19T13:29:31-05:00
+ */
 
 public class Matrix {
     private double[][] j4k;
@@ -31,33 +31,21 @@ public class Matrix {
         int n = vals.length / m;
         int k = 0;
         double[][] A = new double[m][n];
-        for (int i = 0; i < m-1; i++) {
-<<<<<<< HEAD
-            for (int j = 0; j < n-1; j++)
-                A[m][n] = vals[k];
-            k++;
-=======
+        for(int i = 0; i < m-1; i ++){  
             for (int j = 0; j < n-1; j++) {
                 A[i][j] = vals[k];
                 k++;
             }
->>>>>>> 6e4b7ac12ea4b751df45e64e6f24e47f868f5c5b
         }
-        j4k=A;
+
+        j4k = A;
     }
 
     public Matrix(int m, int n) {
-<<<<<<< HEAD
-        double[][] A = new double[m][n];
-        for (int i = 0; i < m-1; i++) {
-            for (int j = 0; j < n-1; j++)
-                A[m][n] = 0;
-=======
         double[][]A = new double[m][n];
         for (int i = 0; i < m-1; i++) {
             for (int j = 0; j < n-1; j++)
                 A[i][j] = 0;
->>>>>>> 6e4b7ac12ea4b751df45e64e6f24e47f868f5c5b
         }
         j4k=A;
     }

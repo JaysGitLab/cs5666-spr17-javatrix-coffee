@@ -25,7 +25,7 @@ public class Matrix {
 
     public Matrix(double[] vals, int m) {
         if (vals.length % m != 0) {
-            throw new IllegalArgumentException("length of array must be divisbile by second variable");
+            throw new IllegalArgumentException("length of array must be divisbile by argument 2");
         }
         int n = vals.length / m;
         int k = 0;

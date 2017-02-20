@@ -142,8 +142,8 @@ public class Matrix {
 
     public double sum() {
         double sum = 0;
-        for (int i = 0; i <  getRowDimension()-1; i++) {
-            for (int j = 0; j <getColumnDimension()-1; j++) {
+        for (int i = 0; i <  getRowDimension(); i++) {
+            for (int j = 0; j <getColumnDimension(); j++) {
                 sum += j4k[i][j];
             }
         }

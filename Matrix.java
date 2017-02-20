@@ -7,67 +7,67 @@
 public class Matrix {
     private double[][] j4k;
 
-    public Matrix(double[][] a) {
-        int numCols = a.length;
+    public Matrix(double[][] A) {
+        int numCols = A[0].length;
+		
         for (int i = 0; i < numCols; i++) {
-            if (numCols != a[i].length) {
+            if (numCols != A[i].length) {
                 throw new IllegalArgumentException("All rows must have the same length");
             }
         }
-        j4k = a;
+        j4k = A;
     }
 
-    public Matrix(double[][] a, int m, int n) {
+    public Matrix(double[][] A, int m, int n) {
         //A = new double[m][n];
-        j4k = new double[m][n];
-        j4k = a;
+        j4k=new double[m][n];
+        j4k = A;
     }
 
     public Matrix(double[] vals, int m) {
         if (vals.length % m != 0) {
-            throw new IllegalArgumentException("length of array must be divisbile by argument 2");
+            throw new IllegalArgumentException("length of array must be divisbile by second variable");
         }
         int n = vals.length / m;
         int k = 0;
-        double[][] a = new double[m][n];
-        for (int i = 0; i < m; i++) {  
+        double[][] A = new double[m][n];
+        for(int i = 0; i < m; i ++){  
             for (int j = 0; j < n; j++) {
-                a[i][j] = vals[k];
+                A[i][j] = vals[k];
                 k++;
             }
         }
 
-        j4k = a;
+        j4k = A;
     }
 
     public Matrix(int m, int n) {
-        double[][] a = new double[m][n];
+        double[][]A = new double[m][n];
         for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                a[i][j] = 0;
-            }
+            for (int j = 0; j < n; j++)
+                A[i][j] = 0;
         }
-        j4k = a;
+        j4k=A;
     }
 
     public Matrix(int m, int n, double s) {
-        double[][] a = new double[m][n];
+        double[][] A = new double[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                a[i][j] = s;
+                A[i][j] = s;
             }
         }
-        j4k = a;
+        j4k=A;
     }
 
     public double[][] getArrayCopy() {
-        double[][]a = new double[getRowDimension()][getColumnDimension()]; 
-        for (int i = 0; i < getRowDimension(); i++) {
-            for (int j = 0; i < getColumnDimension(); j++) {
-                a[i][j] = j4k[i][j];
+        double[][]A = new double[getRowDimension()][getColumnDimension()];
+        for(int i = 0;i<getRowDimension();i++){
+            for(int j=0;i<getColumnDimension();j++) {
+                A[i][j]=j4k[i][j];
             }
         }
-        return a;
+        return A;
     }
 
     public int getRowDimension() {
@@ -128,12 +128,11 @@ public class Matrix {
 
     public Matrix identity(int m, int n) {
         double temp[][] = new double[m][n];
-        for (int i = 0; i < getRowDimension(); i++) {
-            for (int j = 0; j < getColumnDimension(); j++) {
+        for (int i = 0; i < getRowDimension()-1; i++) {
+            for (int j = 0; j < getColumnDimension()-1; j++) {
                 if (i == j) {
                     temp[i][j] = 1;
-                } 
-                else {
+                } else {
                     temp[i][j] = 0;
                 }
             }
@@ -145,7 +144,7 @@ public class Matrix {
     public double sum() {
         double sum = 0;
         for (int i = 0; i <  getRowDimension(); i++) {
-            for (int j = 0; j < getColumnDimension(); j++) {
+            for (int j = 0; j <getColumnDimension(); j++) {
                 sum += j4k[i][j];
             }
         }
@@ -156,45 +155,46 @@ public class Matrix {
         return j4k;
     }
 
-    public Matrix constructWithCopy(double[][] a) {
-        int m = a.length;
-        int n = a[0].length;
-        Matrix b = new Matrix(m, n);
-        double[][] c = b.getArray();
+    public Matrix constructWithCopy(double[][] A) {
+        int m = A.length;
+        int n = A[0].length;
+        Matrix B = new Matrix(m, n);
+        double[][] C = B.getArray();
         for (int i = 0; i < getColumnDimension(); i++) {
-            if (a[i].length != a[0].length) {
+            if (A[i].length != A[0].length) {
                 throw new IllegalArgumentException("All rows must have the same length");
             }
 
-            for (int j = 0; j < a[0].length; j++) {
-                c[i][j] = a[i][j];
+            for (int j =0 ; j<A[0].length;j++){
+                C[i][j] = A[i][j];
             }
         }
-        return b;
+        return B;
     }
 
-    public Matrix copy() {
-        Matrix a = new Matrix(getRowDimension(), getColumnDimension());
-        double[][] b = a.getArray();
-        for (int i = 0; i < getRowDimension(); i++) {
-            for (int j = 0; j < getColumnDimension(); j++) { 
-                b[i][j] = j4k[i][j];
+    public Matrix copy () {
+        Matrix A = new Matrix(getRowDimension(),getColumnDimension());
+        double[][] B = A.getArray();
+        for(int i = 0; i<getRowDimension();i++){
+            for(int j = 0;j<getColumnDimension();j++){
+                B[i][j]=j4k[i][j];
             }
         }
         return this;
     }
+
     public Matrix clone() {
         return this;
     }
 
     public Matrix transpose() {
-        Matrix a = new Matrix(getRowDimension(), getColumnDimension());
-        double b[][] = a.getArray();
-        for (int i = 0; i < getRowDimension(); i++) {
-            for (int j = 0; j < getColumnDimension(); j++) {
-                b[i][j] = j4k[i][j];
+        Matrix A = new Matrix(getRowDimension(),getColumnDimension());
+        double B[][]= A.getArray();
+        for(int i=0;i<getRowDimension();i++){
+            for (int j=0;j<getColumnDimension();j++){
+                B[i][j]=j4k[i][j];
             }
         }
-        return a;
+        return A;
     }
 }

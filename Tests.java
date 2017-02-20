@@ -140,11 +140,11 @@ public class Tests {
     }
 		
     @Test
-    public void getTest(int i, int j){
+    public void getTest(){
         double[][] testVals = {{1.0,2.0}, {3.0, 4.0}};
-	Matrix check = new Matrix(testVals);
-	assert check.get(1, 0) == 3.0 : "get functioning improperly";
-	System.out.println("get: Passed");
+	    Matrix check = new Matrix(testVals);
+    	assert check.get(1, 0) == 3.0 : "get functioning improperly";
+	    System.out.println("get: Passed");
     }
         
 }

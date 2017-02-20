@@ -1,7 +1,6 @@
 package coffee;
 import static org.junit.Assert.*;
 import org.junit.Test;
-
 public class Tests {
 
 
@@ -47,7 +46,7 @@ public class Tests {
             assertEquals(91, A.sum(), 0);
             System.out.println("Constructor Test5: passed");
         }
-
+    /*
     @Test
         public void TestConstructWithCopy(){
             double[][] vals = {{1.,2.,3},{4.,5.,6.},{7.,8.,10.}};
@@ -57,6 +56,7 @@ public class Tests {
             assertEquals(A.sum(), B.sum(),0);
             System.out.println("ConstructWithCopy: Passed");
         }
+    
     @Test
         public void TestCopy(){
             Matrix A = new Matrix(3 ,3 ,3);
@@ -100,8 +100,6 @@ public class Tests {
 
         }
 
-
-    /*
        public static void ConstructorTest3(){
        double[][] vals = {{1.,2.,3},{4.,5.,6.},{7.,8.,10.}};
        Matrix A = new Matrix(vals);
@@ -114,7 +112,6 @@ public class Tests {
        b.print(9,4);
        }
 
-*/
     public static void getRowDimTest(){
         double[][] values = {{1.0,2.0}, {3.0,4.0}, {5.0, 6.0}};
         Matrix A = new Matrix(values);
@@ -127,4 +124,5 @@ public class Tests {
         assert A.getColumnDimension() == 2 : "col dimensions incorrect";
 
     }
+    */
 }

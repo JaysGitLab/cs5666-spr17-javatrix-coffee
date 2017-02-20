@@ -101,16 +101,24 @@ public class Tests {
         }
 	
     @Test
-    	public static void getRowDimTest(){
+    	public void getRowDimTest(){
             double[][] values = {{1.0,2.0}, {3.0,4.0}, {5.0, 6.0}};
             Matrix A = new Matrix(values);
             assert A.getRowDimension() == 3 : "row dimensions incorrect";
         }
 
     @Test
-    	public static void getColDimTest(){
+    	public void getColDimTest(){
             double[][] values = {{1.0,2.0}, {3.0,4.0}, {5.0, 6.0}};
             Matrix A = new Matrix(values);
             assert A.getColumnDimension() == 2 : "col dimensions incorrect";
         }
+		
+	@Test
+		public void getTest(int i, int j){
+			double[][] testVals = {{1.0,2.0}, {3.0, 4.0}};
+			Matrix check = new Matrix(testVals);
+			assert check.get(1, 0) == 3.0 : "get functioning improperly";
+			System.out.println("get: Passed");
+		}
 }

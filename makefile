@@ -17,7 +17,7 @@ default:
 
 compile: Matrix.java Tests.java
 	javac -cp .:$(JUNIT_JAR) Tests.java Matrix.java
-	#javac Matrix.java Tests.java
+
 
 clean:
 	rm -f *.class

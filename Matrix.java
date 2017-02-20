@@ -64,7 +64,7 @@ public class Matrix {
         double[][]a = new double[getRowDimension()][getColumnDimension()]; 
         for (int i = 0; i < getRowDimension(); i++) {
             for (int j = 0; i < getColumnDimension(); j++) {
-                b[i][j] = j4k[i][j];
+                a[i][j] = j4k[i][j];
             }
         }
         return a;
@@ -166,7 +166,7 @@ public class Matrix {
                 throw new IllegalArgumentException("All rows must have the same length");
             }
 
-            for (int j = 0; j < A[0].length; j++) {
+            for (int j = 0; j < a[0].length; j++) {
                 c[i][j] = a[i][j];
             }
         }
